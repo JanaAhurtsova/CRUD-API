@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
-import { Default_Port } from './constants/server/Server.ts';
-import { server } from './server/Server.ts';
+import { Default_Port } from './constants/server/Server';
+import { server } from './server/Server';
 
 dotenv.config();
 
