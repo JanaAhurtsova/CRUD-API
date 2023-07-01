@@ -42,6 +42,7 @@ export const deleteUser = async (id: string) => {
     const user = users.find((user) => user.id === id);
     if (user) {
       users = users.filter((user) => user.id !== id);
+      return users;
     } else {
       const error = CustomErrors.notFound(errorMessages.Not_Found);
       throw error;
@@ -69,4 +70,5 @@ export const updateUser = async (id: string, userData: unknown) => {
     throw error;
   }
   users[userIndex] = { id, ...userData as BaseUser };
+  return users[userIndex];
 };
