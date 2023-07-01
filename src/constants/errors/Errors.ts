@@ -1,5 +1,8 @@
 export const errorMessages = {
-  400: "Body does not contain required fields or data type is wrong",
-  404: "User doesn't exist",
-  500: "Internal Server Error",
+  Invalid_Endpoint: 'Invalid endpoint',
+  Not_Found: "User doesn't exist",
+  Invalid_ID: 'Invalid user ID',
+  Invalid_UserData: 'Invalid user data',
+  Server_Error: "Internal Server Error",
+  Invalid_Method: "Invalid Method"
 };

@@ -5,7 +5,7 @@
     "sourceMap": true,
     "lib": ["ES2022"],
     "noImplicitAny": true,
-    "module": "System",
+    "module": "CommonJS",
     "target": "ES2022",
     "allowJs": true,
     "moduleResolution": "node",

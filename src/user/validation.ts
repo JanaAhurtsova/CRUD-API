@@ -1,10 +1,10 @@
 import { BaseUser } from "./types";
 
-export const isUser = (obj: BaseUser): obj is BaseUser => {
+export const isUser = (data: Partial<BaseUser>) => {
   return (
-    typeof obj.username === "string" &&
-    typeof obj.age === "number" &&
-    Array.isArray(obj.hobbies) &&
-    obj.hobbies.every((hobby) => typeof hobby === "string")
+    typeof data.username === "string" &&
+    typeof data.age === "number" &&
+    Array.isArray(data.hobbies) &&
+    data.hobbies.every((hobby) => typeof hobby === "string")
   );
 };

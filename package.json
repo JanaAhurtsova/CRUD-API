@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "simple crud api using in-memory database underneath",
   "main": "src/index.ts",
-  "type": "module",
   "scripts": {
-    "start:dev": "nodemon src/index.ts",
+    "start:dev": "nodemon",
     "start:prod": "tsc && node ./dist/index.js",
     "lint": "eslint .",
     "lint-fix": "npx eslint . --fix"
