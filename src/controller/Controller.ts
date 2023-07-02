@@ -42,6 +42,5 @@ const sendResponse = <T>(res: ServerResponse<IncomingMessage>, data: T, status =
 const getId = (req: IncomingMessage) => {
   const urlRequest = url.parse(req.url, true);
   const id = urlRequest.path.split('/').at(3);
-  console.log(urlRequest.path.split('/').length);
   return id;
 }
