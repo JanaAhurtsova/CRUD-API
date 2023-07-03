@@ -32,7 +32,7 @@ export const createUser = async (userData: unknown) => {
     return newUser;
   }
 
-  const error = CustomErrors.notFound(errorMessages.Invalid_UserData);
+  const error = CustomErrors.incorrectRequest(errorMessages.Invalid_UserData);
   throw error;
 };
 
@@ -58,13 +58,14 @@ export const updateUser = async (id: string, userData: unknown) => {
   }
 
   if (!isUser(userData)) {
-    const error = CustomErrors.notFound(errorMessages.Invalid_UserData);
+    const error = CustomErrors.incorrectRequest(errorMessages.Invalid_UserData);
     throw error;
   }
 
   const userIndex = users.findIndex((user) => user.id === id);
   const availableIndex = 0;
-  if (!userIndex && userIndex !== availableIndex) {
+
+  if (userIndex < availableIndex) {
     const error = CustomErrors.notFound(errorMessages.Not_Found);
     throw error;
   }

@@ -1,21 +1,7 @@
 import request from 'supertest';
 import { server } from '../src/server/Server';
 import { StatusCodes } from '../src/constants/codes/Codes';
-
-const mockBody = {
-  username: 'test',
-  age: 2023,
-  hobbies: ['js', 'nodejs'],
-};
-
-const mockUpdate = {
-  username: 'nodeJs',
-  age: 2023,
-  hobbies: ['js', 'nodejs'],
-};
-
-const mockId = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d';
-const regExp = /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i;
+import { mockBody, mockId, mockUpdate, regExp } from './constants';
 
 jest.mock('uuid', () => ({ v4: () => mockId, validate: (value: string) => regExp.test(value) }));
 

@@ -10,13 +10,12 @@ export const server = createServer(async (req: IncomingMessage, res: ServerRespo
   try {
     const { path } = url.parse(req.url, true);
     const pathLength = path.split('/').length;
+    res.setHeader('Content-Type', 'application/json');
 
     if (!/\/api\/users/.test(path) || pathLength > allowableLength) {
-      const error = CustomErrors.notFound(errorMessages.Invalid_Endpoint);
-      throw error;
+      throw CustomErrors.notFound(errorMessages.Invalid_Endpoint);
     }
 
-    res.setHeader('Content-Type', 'application/json');
     switch (req.method) {
       case Methods.GET:
         if (path === apiPath) {
