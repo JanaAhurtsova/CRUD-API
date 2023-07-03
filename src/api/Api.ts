@@ -1,6 +1,6 @@
+import { v4 as uuidv4, validate } from 'uuid';
 import { errorMessages } from '../constants/errors/Errors';
 import { BaseUser, User } from '../user/types';
-import { v4 as uuidv4, validate } from 'uuid';
 import { isUser } from '../user/validation';
 import { CustomErrors } from './Errors';
 
@@ -13,13 +13,12 @@ export const getAll = async () => {
 export const getUser = async (id: string) => {
   if (validate(id)) {
     const user = users.find((user) => user.id === id);
-  
+
     if (user) {
       return user;
-    } else {
-      const error = CustomErrors.notFound(errorMessages.Not_Found);
-      throw error;
     }
+    const error = CustomErrors.notFound(errorMessages.Not_Found);
+    throw error;
   }
 
   const error = CustomErrors.incorrectRequest(errorMessages.Invalid_ID);
@@ -28,7 +27,7 @@ export const getUser = async (id: string) => {
 
 export const createUser = async (userData: unknown) => {
   if (isUser(userData)) {
-    const newUser = { id: uuidv4(), ...userData as BaseUser };
+    const newUser = { id: uuidv4(), ...(userData as BaseUser) };
     users.push(newUser);
     return newUser;
   }
@@ -43,10 +42,9 @@ export const deleteUser = async (id: string) => {
     if (user) {
       users = users.filter((user) => user.id !== id);
       return users;
-    } else {
-      const error = CustomErrors.notFound(errorMessages.Not_Found);
-      throw error;
     }
+    const error = CustomErrors.notFound(errorMessages.Not_Found);
+    throw error;
   }
 
   const error = CustomErrors.incorrectRequest(errorMessages.Invalid_ID);
@@ -63,12 +61,14 @@ export const updateUser = async (id: string, userData: unknown) => {
     const error = CustomErrors.notFound(errorMessages.Invalid_UserData);
     throw error;
   }
-  
+
   const userIndex = users.findIndex((user) => user.id === id);
-  if (!userIndex) {
+  const availableIndex = 0;
+  if (!userIndex && userIndex !== availableIndex) {
     const error = CustomErrors.notFound(errorMessages.Not_Found);
     throw error;
   }
-  users[userIndex] = { id, ...userData as BaseUser };
+
+  users[userIndex] = { id, ...(userData as BaseUser) };
   return users[userIndex];
 };

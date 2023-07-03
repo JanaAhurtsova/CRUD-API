@@ -3,6 +3,6 @@ export const errorMessages = {
   Not_Found: "User doesn't exist",
   Invalid_ID: 'Invalid user ID',
   Invalid_UserData: 'Invalid user data',
-  Server_Error: "Internal Server Error",
-  Invalid_Method: "Invalid Method"
+  Server_Error: 'Internal Server Error',
+  Invalid_Method: 'Invalid Method',
 };

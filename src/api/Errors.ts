@@ -1,5 +1,5 @@
-import { errorMessages } from "../constants/errors/Errors";
-import { StatusCodes } from "../constants/codes/Codes";
+import { errorMessages } from '../constants/errors/Errors';
+import { StatusCodes } from '../constants/codes/Codes';
 
 export class CustomErrors extends Error {
   status: number;

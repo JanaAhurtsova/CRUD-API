@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "rootDir": "src",
     "sourceMap": true,
     "lib": ["ES2022"],
     "noImplicitAny": true,
@@ -12,6 +11,6 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop" : true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules"]
 }
