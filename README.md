@@ -8,6 +8,7 @@ Simple CRUD API using in-memory database underneath
 * Install dependencies: ```$ npm install```
 * Run application in development mode: ```$ npm run start:dev```
 * Run application in production mode: ```$ npm run start:prod```
+* Run test: ```$ npm run test```
 
 #### Endpoints description
 Implemented endpoint **<font color="steelblue">api/users</font>**
@@ -30,3 +31,4 @@ Implemented endpoint **<font color="steelblue">api/users</font>**
      - Response: ` status code` **400** and message `Invalid user ID` if provided id is not valid uuid
      - Response: ` status code` **404** and and message `User doesn't exist`
 2. Requests to non-existing endpoints (e.g. `some-non/existing/resource`) Response: `status code` **404** `Invalid endpoint`
+3. Errors on the server side that occur during the processing of a request are handled (server answers with `status code` **500** and `Internal Server Error` message)
